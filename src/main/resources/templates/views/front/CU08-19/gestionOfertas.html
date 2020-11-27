@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<link type="text/css" rel="stylesheet" href="../../assets/front/css/bootstrap.min.css"/>
+
+<title>Marketplace</title>
+<!-- Google font -->
+<link
+	href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700"
+	rel="stylesheet">
+
+<!-- Bootstrap -->
+<link type="text/css" rel="stylesheet"
+	href="../../assets/front/css/bootstrap.min.css" />
+
+<!-- Slick -->
+<link type="text/css" rel="stylesheet"
+	href="../../assets/front/css/slick.css" />
+<link type="text/css" rel="stylesheet"
+	href="../../assets/front/css/slick-theme.css" />
+
+<!-- nouislider -->
+<link type="text/css" rel="stylesheet"
+	href="../../assets/front/css/nouislider.min.css" />
+
+<!-- Font Awesome Icon -->
+<link rel="stylesheet"
+	href="../../assets/front/css/font-awesome.min.css">
+
+<!-- Custom stlylesheet -->
+<link type="text/css" rel="stylesheet"
+	href="../../assets/front/css/style.css" />
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+<body>
+	<!-- header -->
+	<div th:replace="views/front/CU08-19/layout/layout :: header"></div>
+	<!-- /header -->
+	<!--  navigation -->
+	<div th:replace="views/front/CU08-19/layout/layout :: navigation"></div>
+	<!-- /navigation -->
+	<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+				<!-- section title -->
+					
+					<!-- /section title -->
+					<!-- Products tab & slick -->
+					<div class="col-md-7">
+						<h1 >Productos</h1>
+						<div class="row">
+							<div class="products-tabs">
+								<!-- tab -->
+								<div id="tab2" class="tab-pane fade in active">
+								
+								
+									<div class="products-slick" data-nav="#slick-nav-2" th:switch="${listProducts}">														
+										<!-- product -->
+										<div class="product" th:each="producto :${listProducts}">
+											<div class="product-img">
+												<img th:src="${producto.url}" th:attr="alt=${producto.nombre}">
+												<div class="product-label">
+												</div>
+											</div>
+											<div class="product-body">
+												<p class="product-category">Categoría</p>
+												
+												<h3 class="product-name" th:text="${producto.nombre}"></h3>
+												<h4 class="product-price" th:text="${producto.precioUnitario}"></h4>
+											
+												<div class="product-btns">											
+													<button class="add-to-wishlist selection" th:id="${producto.idproducto}">
+														<a th:href="@{/gestionofertas/save/{id}(id=${producto.idproducto})}">
+															<span th:if="${not producto.estadoseleccionoferta}">
+																<i class="fa fa-heart-o">
+																	<span class="tooltipp">Seleccionar</span>															
+																</i>	
+															</span>
+    														<span th:if="${producto.estadoseleccionoferta}">
+    															<i class="fa fa-heart">	
+    																<span class="tooltipp">Seleccionar</span>															
+																</i>
+    														</span>														
+																
+														</a>
+													</button>
+
+												</div>
+											</div>
+										</div>
+										<!-- /product -->
+									</div>
+									
+									
+									
+									<div id="slick-nav-2" class="products-slick-nav"></div>
+								</div>
+								<!-- /tab -->
+							</div>
+						</div>
+						
+					</div>
+					<!-- /Products tab & slick -->
+					
+					<!-- Products tab & slick -->
+					<div class="col-md-5">
+					<h1>Productos Seleccionados</h1>
+						<div class="row">
+							
+							<div class="products-tabs">
+								<!-- tab -->
+								<div id="tab1" class="tab-pane fade in active">
+									
+
+
+
+
+									<div class="products-slick" data-nav="#slick-nav-2" th:switch="${oferta}">														
+										<!-- product -->
+										<div class="product" th:each="producto :${oferta}">
+											<div class="product-img">
+												<img th:src="${producto.url}" th:attr="alt=${producto.nombre}">
+												<div class="product-label">
+												</div>
+											</div>
+											<div class="product-body">
+												<p class="product-category">Category</p>
+												<h3 class="product-name" th:text="${producto.estadoseleccionoferta}"></h3>
+												<h3 class="product-name" th:text="${producto.nombre}"><a href="../../product" ></a></h3>
+												<h4 class="product-price" th:text="${producto.precioUnitario}"></h4>
+											
+												<div class="product-btns">											
+													<button class="add-to-wishlist selection" th:id="${producto.idproducto}">
+														<a th:href="@{/gestionofertas/save/{id}(id=${producto.idproducto})}">
+															<span th:if="${not producto.estadoseleccionoferta}">
+																<i class="fa fa-heart-o">
+																	<span class="tooltipp">Quitar</span>															
+																</i>	
+															</span>
+    														<span th:if="${producto.estadoseleccionoferta}">
+    															<i class="fa fa-heart">	
+    																<span class="tooltipp">Quitar</span>															
+																</i>
+    														</span>														
+																
+														</a>
+													</button>
+													<a th:href="@{/gestionofertas/create/0/{idP}(idP=${producto.idproducto})}">Agregar</a>
+													<a th:href="@{/gestionofertas/create/{idP}/{idP}(idP=${producto.idproducto})}">Actualizar</a>
+													<a th:href="@{/gestionofertas/delete/{id}(id=${producto.idproducto})}">Eliminar</a>
+
+
+												</div>
+											</div>
+										</div>
+										<!-- /product -->
+									</div>
+
+
+
+
+
+									<div id="slick-nav-1" class="products-slick-nav"></div>
+								</div>
+								<!-- /tab -->
+							</div>
+						</div>
+					</div>
+					<!-- /Products tab & slick -->
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		<!-- /SECTION -->
+			<!-- jQuery Plugins -->
+		<script src="../../assets/front/js/selectProduct.js"></script>
+		<script src="../../assets/front/js/jquery.min.js"></script>
+		<script src="../../assets/front/js/bootstrap.min.js"></script>
+		<script src="../../assets/front/js/slick.min.js"></script>
+		<script src="../../assets/front/js/nouislider.min.js"></script>
+		<script src="../../assets/front/js/jquery.zoom.min.js"></script>
+		<script src="../../assets/front/js/main.js"></script>
+</body>
+<!-- footer -->
+<div th:replace="views/front/CU08-19/layout/layout :: footer"></div>
+<!-- /footer -->
+</html>

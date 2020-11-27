@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/marketplacebd</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <mapping class="pe.edu.unsch.entities.Boleta"/>
+        <mapping class="pe.edu.unsch.entities.Carrito"/>
+ 		<mapping class="pe.edu.unsch.entities.CarritoProducto"/>
+  		<mapping class="pe.edu.unsch.entities.Categoria"/>
+		<mapping class="pe.edu.unsch.entities.CategoriaProducto"/>
+		<mapping class="pe.edu.unsch.entities.CategoriaSubcategoria"/>
+  		<mapping class="pe.edu.unsch.entities.Comentario"/>
+  		<mapping class="pe.edu.unsch.entities.CompradorFrecuente"/>
+  		<mapping class="pe.edu.unsch.entities.CuponDescuento"/>
+  		<mapping class="pe.edu.unsch.entities.Direccion"/>
+  		<mapping class="pe.edu.unsch.entities.Factura"/>
+  		<mapping class="pe.edu.unsch.entities.GarantiaProducto"/>
+  		<mapping class="pe.edu.unsch.entities.ImagenProducto"/>
+  		<mapping class="pe.edu.unsch.entities.Modulo"/>
+  		<mapping class="pe.edu.unsch.entities.OfertaProducto"/>
+  		<mapping class="pe.edu.unsch.entities.Opcion"/>
+  		<mapping class="pe.edu.unsch.entities.Pago"/>
+  		<mapping class="pe.edu.unsch.entities.Pedido"/>
+  		<mapping class="pe.edu.unsch.entities.Persona"/>
+  		<mapping class="pe.edu.unsch.entities.PersonaDireccion"/>
+  		<mapping class="pe.edu.unsch.entities.PersonaRol"/>
+ 		<mapping class="pe.edu.unsch.entities.Producto"/>
+  		<mapping class="pe.edu.unsch.entities.ProductoDeseado"/>
+  		<mapping class="pe.edu.unsch.entities.ProductoDestacado"/>
+  		<mapping class="pe.edu.unsch.entities.ProductoFavorito"/>
+  		<mapping class="pe.edu.unsch.entities.Reclamo"/>
+  		<mapping class="pe.edu.unsch.entities.Regalo"/>
+  		<mapping class="pe.edu.unsch.entities.Reporte"/>
+  		<mapping class="pe.edu.unsch.entities.Rol"/>
+  		<mapping class="pe.edu.unsch.entities.RolOpcion"/>
+  		<mapping class="pe.edu.unsch.entities.Seguimiento"/>
+  		<mapping class="pe.edu.unsch.entities.SubModulo"/>
+  		<mapping class="pe.edu.unsch.entities.Tarjeta"/>
+  		<mapping class="pe.edu.unsch.entities.Usuario"/>
+  		<mapping class="pe.edu.unsch.entities.ValoracionVendedor"/>
+  		<mapping class="pe.edu.unsch.entities.Venta"/>
+  		<mapping class="pe.edu.unsch.entities.VentaReporte"/>
+    </session-factory>
+</hibernate-configuration>

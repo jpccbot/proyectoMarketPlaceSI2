@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<link type="text/css" rel="stylesheet" href="../../assets/front/css/bootstrap.min.css"/>
+
+<title>Marketplace</title>
+<!-- Google font -->
+<link
+	href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700"
+	rel="stylesheet">
+
+<!-- Bootstrap -->
+<link type="text/css" rel="stylesheet"
+	href="../../assets/front/css/bootstrap.min.css" />
+
+<!-- Slick -->
+<link type="text/css" rel="stylesheet"
+	href="../../assets/front/css/slick.css" />
+<link type="text/css" rel="stylesheet"
+	href="../../assets/front/css/slick-theme.css" />
+
+<!-- nouislider -->
+<link type="text/css" rel="stylesheet"
+	href="../../assets/front/css/nouislider.min.css" />
+
+<!-- Font Awesome Icon -->
+<link rel="stylesheet"
+	href="../../assets/front/css/font-awesome.min.css">
+
+<!-- Custom stlylesheet -->
+<link type="text/css" rel="stylesheet"
+	href="../../assets/front/css/style.css" />
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+</head>
+<body>
+
+
+
+
+
+
+
+<div class="container">
+	<form action="#" th:action="@{/gestionofertas/create}" class="form-group" th:object="${oferta}" method="POST">
+		<div class="form-group">
+
+
+			<input type="hidden" th:field="*{idofertaproducto}" name="idofertaproducto" id="idofertaproducto">
+						
+			<input type="hidden" name="producto" id="producto" th:value="${productoo.idproducto}">
+			
+			<label for="estado">estado</label>
+			<input type="checkbox" th:field="*{estado}" name="estado" id="estado">
+
+			<label for="descripcion">descripcion</label>
+			<input type="text" class="form-control" id="descripcion" th:field="*{descripcion}" name="descripcion">
+
+			<label for="precioOferta">Precio oferta</label>
+			<input type="number" class="form-control" id="precioOferta" th:field="*{precioOferta}" name="precioOferta">
+
+			<label for="fechaInicio">fechaInicio</label>
+			<input type="date" class="form-control" id="fechaInicio" th:field="*{fechaInicio}" name="fechaInicio" min="2018-01-01" max="2021-12-31">
+
+			<label for="fechaLimite">fechaLimite</label>
+			<input type="date" class="form-control" id="fechaLimite" th:field="*{fechaLimite}" name="fechaLimite" min="2018-01-01" max="2021-12-31">
+			
+		
+		</div>
+		<button type="submit" class="btn btn-success">Guardar</button>
+	</form>
+</div>
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+		<script src="../../assets/front/js/selectProduct.js"></script>
+		<script src="../../assets/front/js/jquery.min.js"></script>
+		<script src="../../assets/front/js/bootstrap.min.js"></script>
+		<script src="../../assets/front/js/slick.min.js"></script>
+		<script src="../../assets/front/js/nouislider.min.js"></script>
+		<script src="../../assets/front/js/jquery.zoom.min.js"></script>
+		<script src="../../assets/front/js/main.js"></script>
+</body>
+<!-- footer -->
+<div th:replace="views/front/CU08-19/layout/layout :: footer"></div>
+<!-- /footer -->
+</html>
